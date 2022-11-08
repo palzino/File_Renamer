@@ -17,6 +17,4 @@ for f in os.listdir():
                 new_name = ('{}{}{}'.format(series_name + " ", ep_format, file_ext))
                 os.rename(x, new_name)
         os.chdir(os.path.pardir)
-        s = s + 1  
-    else:
-        continue
+        s = s + 1
