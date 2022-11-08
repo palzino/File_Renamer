@@ -1,24 +1,26 @@
 import os
-while True:
-    selection = input("input 1 to run the program and 2 to quit")
-    if selection == "1":
-        series_name = input("Input the name of the series")
-        season_number = input("input season number")
-        f_ep = 1
-        mylist = []
-        working_dir = input("input directory")
-        for f in os.listdir():
-            file_name, file_ext = os.path.splitext(f)
-            if file_ext == ".py":
+s = int(1)
+numSeasons = len(os.listdir())
+split = os.path.split(os.getcwd())
+series_name = split[1]
+for f in os.listdir():
+    season = ("Season {0}".format(s))
+    if f == season:
+        x_ep = 1
+        os.chdir(os.path.join(os.getcwd(), season))
+        for x in os.listdir():
+            file_name, file_ext = os.path.splitext(x)
+            if file_ext == ".py" or file_ext ==".srt":
                 continue
             else:
-                ep_format = (f"S{season_number}ep{f_ep}")
-                f_ep = f_ep + 1
+                ep_format = (f"S{s:02d} EP{x_ep:02d}")
+                x_ep = x_ep + 1
                 new_name = ('{}{}{}'.format(series_name + " ", ep_format, file_ext))
-                os.rename(f, new_name)
-    elif selection == "2":
-        break
+                os.rename(x, new_name)
+        os.chdir(os.path.pardir)
+        s = s + 1  
     else:
-        print("enter a valid response")
+        continue
+    print("Finished")
             
        
