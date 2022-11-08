@@ -1,6 +1,5 @@
 import os
-s = int(1)
-numSeasons = len(os.listdir())
+s = 1
 split = os.path.split(os.getcwd())
 series_name = split[1]
 for f in os.listdir():
@@ -21,6 +20,3 @@ for f in os.listdir():
         s = s + 1  
     else:
         continue
-    print("Finished")
-            
-       
