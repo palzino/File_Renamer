@@ -1,7 +1,6 @@
 import os
 s = 1
-split = os.path.split(os.getcwd())
-series_name = split[1]
+series_name = os.path.split(os.getcwd())[1]
 for f in os.listdir():
     season = ("Season {0}".format(s))
     if f == season:
@@ -14,7 +13,6 @@ for f in os.listdir():
             else:
                 ep_format = (f"S{s:02d} EP{x_ep:02d}")
                 x_ep = x_ep + 1
-                new_name = ('{}{}{}'.format(series_name + " ", ep_format, file_ext))
-                os.rename(x, new_name)
+                os.rename = (x, '{}{}{}'.format(series_name + " ", ep_format, file_ext))
         os.chdir(os.path.pardir)
         s = s + 1
